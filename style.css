@@ -1,0 +1,127 @@
+/* Definindo variáveis de cor para facilitar o gerenciamento de temas e estilos */
+:root {
+    --primary-color: #fdf3ba; /* Cor primária para fundo e textos principais */
+    --secondary-color: #696969; /* Cor secundária para elementos de destaque e bordas */
+}
+
+/* Resetando margens e preenchimentos de todos os elementos, e definindo o box-sizing como border-box para incluir bordas e preenchimento no cálculo da largura e altura */
+* {
+    margin: 0; /* Remove a margem padrão dos elementos */
+    padding: 0; /* Remove o preenchimento padrão dos elementos */
+    box-sizing: border-box; /* Inclui bordas e preenchimento no cálculo da largura e altura do elemento */
+}
+
+/* Definindo o tamanho da fonte base do HTML para facilitar o uso de rems em relação ao tamanho padrão */
+html {
+    font-size: 62.5%; /* Define o tamanho da fonte base como 62.5% do padrão (16px), facilitando a utilização de rems para tamanhos de fonte */
+}
+
+/* Estilização geral do corpo da página */
+body {
+    background-color: var(--primary-color); /* Define a cor de fundo do corpo usando a variável primária */
+    font: bold 2rem 'Open Sans', sans-serif; /* Define a fonte e o tamanho do texto do corpo, com um peso negrito e tamanho de 2rem (2 * 62.5% de 16px)*/
+}
+
+/* Contêiner principal da lista de tarefas */
+.todo {
+    display: flex; /* Utiliza o layout flexível para alinhar os itens */
+    width: 75vw; /* Define a largura como 50% da largura da visualização (viewport) */
+    flex-direction: column; /* Organiza os itens verticalmente */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    margin: 0 auto; /* Centraliza o contêiner horizontalmente */
+    gap: 15px; /* Espaçamento entre os itens internos */
+}
+
+/* Estilização do título da lista de tarefas */
+.todo__title {
+    display: flex; /* Utiliza o layout flexível para centralizar o título */
+    background-color: var(--secondary-color); /* Define a cor de fundo usando a variável secundária */
+    width: 100%; /* Largura total do contêiner pai */
+    height: 80px; /* Altura fixa para o título */
+    justify-content: center; /* Centraliza o texto horizontalmente */
+    align-items: center; /* Centraliza o texto verticalmente */
+    margin-top: 50px; /* Margem superior para afastar o título do topo da página */
+    box-shadow: 1px 1px 5px var(--secondary-color); /* Adiciona uma sombra ao redor do título */
+    font-size: 3rem; /* Tamanho da fonte do título */
+    color: var(--primary-color); /* Cor do texto definida pela variável primária */
+}
+
+/* Contêiner da lista de tarefas */
+.todo__list {
+    display: flex; /* Utiliza o layout flexível para alinhar os itens da lista */
+    width: 100%; /* Largura total do contêiner pai */
+    flex-direction: column; /* Organiza os itens verticalmente */
+    gap: 10px; /* Espaçamento entre os itens */
+}
+
+/* Estilização dos itens individuais da lista de tarefas */
+.todo__item{
+    display: flex; /* Utiliza o layout flexível para alinhar os itens dentro da lista */
+    width: 100%; /* Largura total do contêiner pai */
+    height: 60px; /* Altura fixa para os itens da lista */
+    justify-content: space-between; /* Espaça os itens entre as extremidades do contêiner */
+    align-items: center; /* Alinha os itens verticalmente no centro */
+    padding: 5px; /* Espaçamento interno dos itens */
+    box-shadow: 1px 1px 5px var(--secondary-color); /* Adiciona uma sombra ao redor dos itens */
+}
+
+/* Estilização dos elementos internos dos itens da lista */
+.todo__item > div {
+    width: 80%; /* Largura dos elementos internos como 80% do item */
+}
+
+/* Estilo de hover para os itens da lista */
+.todo__item:hover {
+    cursor: pointer; /* Muda o cursor para um ponteiro quando o mouse passa sobre o item */
+    transition: all .5s ease; /* Animações suaves para todas as propriedades */
+    background-color: var(--secondary-color); /* Muda a cor de fundo para a variável secundária no hover */
+    color: var(--primary-color); /* Muda a cor do texto para a variável primária no hover */
+}
+
+/* Estilização do campo de entrada de texto dentro dos itens da lista */
+.todo__item > input[type='text'] {
+    border: none; /* Remove a borda padrão do campo de entrada */
+    width: 80%; /* Define a largura do campo de entrada como 80% do item */
+    font: inherit; /* Herda a fonte do pai */
+}
+
+/* Estilização dos botões e caixas de seleção dentro dos itens da lista */
+.todo__item > input[type='button'],
+.todo__item > input[type='checkbox'] {
+    width: 30px; /* Largura dos botões e caixas de seleção */
+    height: 30px; /* Altura dos botões e caixas de seleção */
+    font: inherit; /* Herda a fonte do pai */
+}
+
+/* Efeito visual quando a caixa de seleção está marcada */
+.todo__item > input[type='checkbox']:checked + div {
+    text-decoration: line-through; /* Adiciona um risco sobre o texto quando a caixa de seleção está marcada */
+}
+
+/* Estilização do contêiner para adicionar novas tarefas */
+.todo__new-item {
+    display: flex; /* Utiliza o layout flexível para alinhar os itens */
+    background-color: #fff59d; /* Cor de fundo do contêiner de nova tarefa */
+    width: 100%; /* Largura total do contêiner pai */
+    height: 70px; /* Altura fixa para o contêiner de nova tarefa */
+    justify-content: space-evenly; /* Espaça os itens de forma uniforme dentro do contêiner */
+    padding: 10px 0; /* Espaçamento interno superior e inferior */
+    box-shadow: 1px 1px 5px var(--secondary-color); /* Adiciona uma sombra ao redor do contêiner de nova tarefa */
+    margin: 10px; /* Margem ao redor do contêiner de nova tarefa */
+    font: inherit; /* Herda a fonte do pai */
+}
+
+/* Estilização do campo de entrada de texto dentro do contêiner de nova tarefa */
+.todo__new-item > input {
+    background-color: #fff59d; /* Cor de fundo do campo de entrada de nova tarefa */
+    border: none; /* Remove a borda padrão do campo de entrada */
+    width: 80%; /* Largura do campo de entrada como 80% do contêiner de nova tarefa */
+    outline: none; /* Remove o contorno padrão do foco no campo de entrada */
+    font: inherit; /* Herda a fonte do pai */
+}
+
+/* Estilização do texto do placeholder dentro do campo de entrada de nova tarefa */
+.todo__new-item > input::placeholder {
+    font-style: italic; /* Define o estilo da fonte do placeholder como itálico */
+    font-weight: normal; /* Define o peso da fonte do placeholder como normal */
+}
